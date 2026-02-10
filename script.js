@@ -34,10 +34,18 @@ function customPrev() {
     } else if(currentVisibleSection === "results") {
         document.getElementById("results").classList.add("hidden");
         document.getElementById("grades").classList.remove("hidden");
+        
+        // السطر الجديد لإخفاء زر المفاجأة عند العودة لصفحة الدرجات
+        document.getElementById("surpriseBtnContainer").classList.add("hidden");
+        
         updateNavVisibility("grades");
     } else if(currentVisibleSection === "prayerPage") {
         document.getElementById("prayerPage").classList.add("hidden");
         document.getElementById("results").classList.remove("hidden");
+        
+        // إعادة إظهار الزر إذا عدنا من صفحة الصلاة لصفحة النتائج
+        document.getElementById("surpriseBtnContainer").classList.remove("hidden");
+        
         updateNavVisibility("results");
     }
     window.scrollTo({top: 0, behavior: 'smooth'});

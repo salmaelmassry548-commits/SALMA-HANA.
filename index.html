@@ -2,7 +2,7 @@
 <html lang="ar">
 <head>
 <meta charset="UTF-8">
-<title>NABGHA</title>
+<title>Nabgha</title>
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;700&display=swap" rel="stylesheet">
 <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.6.0/dist/confetti.browser.min.js"></script>
@@ -251,7 +251,7 @@ th{background:#eef2ff;}
 
 <div id="intro" class="intro-screen">
   <div class="intro-box">
-    <h1>NABGHA</h1>
+    <h1>Nabgha</h1>
     <p class="intro-sub">
       مشروع ذكاء اصطناعي ينظم وقت الطالب  
       ويحوّل المذاكرة لإنجاز حقيقي
@@ -271,7 +271,7 @@ th{background:#eef2ff;}
 </div>
 
 <header>
-<h1>NABGHA</h1>
+<h1>Nabgha</h1>
 <p id="welcome">ذكاء اصطناعي ينظم وقتك</p>
 <button class="logout hidden" onclick="logout()">تسجيل خروج</button>
 </header>
@@ -316,7 +316,7 @@ th{background:#eef2ff;}
 </audio>
 
 <div id="surpriseBtnContainer" class="container hidden" style="text-align: center;">
-    <button onclick="showPrayerPage()" style="background: linear-gradient(135deg,#4f46e5,#f7b4f1); color: #e0e7ff;">
+    <button onclick="showPrayerPage()" style="background: linear-gradient(135deg,#4f46e5,#9fc7f5); color: #e0e7ff;">
          مفاجأة مستنياك
     </button>
 </div>
@@ -373,10 +373,18 @@ function customPrev() {
     } else if(currentVisibleSection === "results") {
         document.getElementById("results").classList.add("hidden");
         document.getElementById("grades").classList.remove("hidden");
+        
+        // السطر الجديد لإخفاء زر المفاجأة عند العودة لصفحة الدرجات
+        document.getElementById("surpriseBtnContainer").classList.add("hidden");
+        
         updateNavVisibility("grades");
     } else if(currentVisibleSection === "prayerPage") {
         document.getElementById("prayerPage").classList.add("hidden");
         document.getElementById("results").classList.remove("hidden");
+        
+        // إعادة إظهار الزر إذا عدنا من صفحة الصلاة لصفحة النتائج
+        document.getElementById("surpriseBtnContainer").classList.remove("hidden");
+        
         updateNavVisibility("results");
     }
     window.scrollTo({top: 0, behavior: 'smooth'});
